@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #333;
+        color: white;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .navbar-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .navbar-links a {
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s;
+      }
+
+      .navbar-links a:hover {
+        color: #ff9800;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        height: 3px;
+        width: 25px;
+        background: white;
+        margin: 4px 0;
+        transition: all 0.3s;
+      }
+
+      .navbar-collapse {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #444;
+        padding: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-links {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .navbar-collapse {
+          display: flex;
+        }
+
+        .navbar-collapse.active {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-brand">MyWebsite</div>
+      <div class="navbar-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <div class="navbar-collapse" id="navbarCollapse">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navbarCollapse = document.getElementById("navbarCollapse");
+
+      hamburger.addEventListener("click", () => {
+        navbarCollapse.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
